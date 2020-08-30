@@ -3,6 +3,7 @@ from tkinter import filedialog, Text
 from jumpssh import SSHSession
 from functools import partial
 from PIL import ImageTk, Image
+import applescript
 import os
 
 root = tk.Tk()
@@ -11,7 +12,7 @@ root.resizable(False, False)
 
 def sshToNode(nodeName):
 	yourCommand = 'ssh -t ' + entryUsername.get() + '@users.isi.deterlab.net \'ssh ' + nodeName + '.' + entryExperiment.get() + '.' + entryProject.get() + '\''
-	tell.app( 'Terminal', 'do script "' + yourCommand + '"')
+	applescript.tell.app( 'Terminal', 'do script "' + yourCommand + '"')
 
 
 def login():
